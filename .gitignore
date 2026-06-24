@@ -11,9 +11,6 @@ infrastructure/environments/dev/.terraform/
 infrastructure/environments/**/*.tfstate
 infrastructure/environments/**/*.tfstate.backup
 
-# Magento source — install via composer
-src/
-
 # OS
 .DS_Store
 *.swp
