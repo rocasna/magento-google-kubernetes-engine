@@ -1,0 +1,15 @@
+# 1. Crear la Service Account
+gcloud iam service-accounts create terraform-admin \
+    --display-name="Terraform Admin Account"
+
+# 2. Darle el rol de Editor (o Owner) en el proyecto
+gcloud projects add-iam-policy-binding magento-kubernetes-493517 \
+    --member="serviceAccount:terraform-admin@magento-kubernetes-493517.iam.gserviceaccount.com" \
+    --role="roles/editor"
+
+# 3. PERMISO CLAVE: Permitir que TU usuario personal pueda suplantar a esta cuenta
+# Sustituye TU_EMAIL@gmail.com por tu cuenta de Google
+gcloud iam service-accounts add-iam-policy-binding \
+    terraform-admin@magento-kubernetes-493517.iam.gserviceaccount.com \
+    --member="user:TU_EMAIL@gmail.com" \
+    --role="roles/iam.serviceAccountTokenCreator"

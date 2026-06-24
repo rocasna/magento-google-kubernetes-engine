@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: proyecto-magento2-pod
+  labels:
+    app: magento2-app
+spec:
+  # --- AQUÍ ESTÁ EL TRUCO ---
+  hostAliases:
+  - ip: "10.30.32.35" # <--- Cambia esto por la IP de tu Redis
+    hostnames:
+    - "redis"
+  - ip: "10.14.0.5" # <--- Cambia esto por la IP de tu MySQL
+    hostnames:
+    - "mysql"
+    - "localhost" # Por si Magento intenta buscar en localhost por defecto
+  # --------------------------
+  containers:
+  - name: magento-container
+    image: gcr.io/magento-kubernetes-493517/proyecto-magento2:latest
+    ports:
+    - containerPort: 8080
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "500m"

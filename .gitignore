@@ -1,0 +1,17 @@
+# Base de datos — no subir al repo
+backup_magento.sql
+
+# Docker — credenciales locales
+docker/.env
+docker/db_data/
+
+# Terraform — credenciales y estado local
+infrastructure/environments/dev/terraform.tfvars
+infrastructure/environments/dev/.terraform/
+infrastructure/environments/**/*.tfstate
+infrastructure/environments/**/*.tfstate.backup
+
+# OS
+.DS_Store
+*.swp
+*~

@@ -1,0 +1,12 @@
+project_id = "your-gcp-project-id"
+region     = "europe-west1"
+env        = "dev"
+app        = "magento"
+
+subnet_cidr        = "10.1.0.0/24"
+pod_range_name     = "k8s-pod-range"
+pod_range_cidr     = "10.2.0.0/16"
+service_range_name = "k8s-service-range"
+service_range_cidr = "10.3.0.0/20"
+
+database_user = "magento_user"
